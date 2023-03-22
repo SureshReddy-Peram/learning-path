@@ -1,53 +1,60 @@
 import React,{useState, useRef} from 'react';
+import axios from 'axios';
+import './Login.css';
 
 const Login = () => {
-  const uname = useRef(` `);
-    const upwd = useRef(` `);
+  //1.We will use the useRef hook to get the input element(to accept user input)
+  const uemail = useRef('');
+  const upwd = useRef('');
 
-    const [result, setResult] = useState(``);
+  // 7. Store the token in a state variable
+  const [token, setToken] = useState('');
 
-    const my_func = () => {
-        if( uname.current.value === "admin" && upwd.current.value === "admin@123"){
-            //console.log("Login successful");   //Note: First we check with console.log after that we go for useState
-            setResult(`Login Successful`);
-        }else{
-            //console.log("Login failed");
-            setResult("Login Failed");
-        }
-    } 
-  return (
-    <>
-      <div className="container mt-5">
-        <div className="row m-5">
-            <div className="col-6">
-               <div className="form-group">
-               <label>User Name </label>
-                <input type={`text`} className="form-control" ref={uname} />
-               </div>
-            </div>         
-        </div>
+  //2.We are comparing the user input(email, password) with the database(email, password) using axios library
+  const login = ()=>{
 
-        <div className="row m-5">
-        <div className="col-6">
-               <div className="form-group">
-               <label>Password </label>
-                <input type={`password`} className="form-control" ref={upwd} />
-               </div>
+      axios.post(`https://reqres.in/api/login`,{'email': uemail.current.value , 'password': upwd.current.value}).then( (posRes) => {
+          console.log(posRes);  // 3.you will get the object or response from the server
+          const {data} = posRes;   //4.we are destructuring the data from the response 
+          const {token} = data;   //5.we are destructuring the token from the data
+          setToken(token);
+
+          //console.log(token); 
+      }, (errorRes) => {
+          //console.log(errorRes);
+          alert("Please Enter your email and password")
+      }); 
+  }
+return (
+  <> {/* 6.We write JSX for email, password, button using Form and Bootstrap */}
+    <form className='form'>
+      
+        
+           <div className="form-group">                         
+              <label htmlFor="email">Email</label>
+              <input type={"text"} className="form-control" ref={uemail} placeholder="Enter your email" required/>
+              <br/>
             </div>
-        </div>
-
-        <div className='row m-5'>
-            <div className='col-9'>
-                <button className="btn btn-success btn-lg" onClick={()=>my_func()}>Login</button>
-                {/* Note: Please keep my_func in arrow function otherwise you may get error.
-                Error: Too many re-renders. React limits the number of renders to prevent an infinite loop. */}
+             
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input type={"password"} className="form-control" ref={upwd} placeholder="Enter your password" required/>
+              <br/>
             </div>
-        </div>
+          
+              <button type="button" className="btn btn-primary" onClick={login}>Login</button>
 
-        <h1 className="text text-primary">{result} </h1>
-      </div>
-    </>
-  )
+              
+              <div className='wrap'>
+                <p className='forgot'>Forgot password : <a href='https://reqres.in/api/users?page=2'> Click Here</a></p>
+                <p className='register'>New to Website : <a href='/signup'> <button type="button">Register</button></a></p>
+              </div>
+                  
+    </form>
+    {/* 8. We are displaying the token on screen */}
+    <h1>{token} </h1>
+  </>
+)
 }
 
-export default Login
+export default Login;

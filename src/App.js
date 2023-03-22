@@ -14,7 +14,7 @@ function App() {
       <Navbar  /> 
       
       <main></main>
-      <footer></footer>
+      
       <div className='App__main-page-content'>
         <Routes>
           <Route index path= "/" element={<Courses />} />

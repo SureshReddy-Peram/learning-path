@@ -1,4 +1,4 @@
-[
+export const curriculam = [
     {
         "topic":"Understanding Basic Programming Concepts",
         "description":"You will learn concepts like data types, variables, loops, and conditional statements.",
@@ -29,4 +29,4 @@
         "description":"Mock interviews, Placement assistence",
         "duration":"15 days"
     }
-]
+];
