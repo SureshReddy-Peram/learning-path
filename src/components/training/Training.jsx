@@ -4,7 +4,9 @@ import './Training.css';
 const Training = () => {
   return (
     <>
-      <h1 className='training'>For Corporate Training contact us.</h1>
+      <div className='training'>
+      <h1 className='c-training'>For Corporate Training contact us.</h1>
+      </div>
     </>
   )
 }

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import {NavLink} from 'react-router-dom';
 import { FaGraduationCap, FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
+
 
 const courses = [
   {
@@ -58,6 +60,8 @@ const Navbar = () => {
           {toggleIcon ? <HiX size={30} /> : <FaBars size={30} />}
         </div>
       </div>
+
+      
     </>
   );
 };

@@ -1,10 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Courses from '../courses/Courses';
+import Sidenav from '../navbar/Sidenav';
+import './Home.scss';
 
 const Home = () => {
   return (
     <>
-      <div className="container">
-        
+      <div className="container-fluid">
+        <div className="row" >
+          <div className="col-2">
+          <Sidenav />
+          </div>
+          
+        </div>
       </div>
     </>
   )

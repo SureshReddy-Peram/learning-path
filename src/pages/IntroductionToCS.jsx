@@ -1,64 +1,52 @@
 import React from 'react';
-
+import {BsInfoCircleFill} from 'react-icons/bs';
+import {curriculam} from '../utils/data';
+import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import Header from '../components/header/Header';
+import './IntroductionToCS.scss';
+import {MdComputer} from 'react-icons/md'
 
 const IntroductionToCS = () => {
   return (
     <>
-      <section id="skills" className="skills">
-        <PageHeader
-          headerText="My Skills"
-          icon={<BsInfoCircleFill size={40} />}
-        />
+      <section id="training" className="training">     
+        
+        <div className="timeline">
+          <div className="timeline__cs">
+            <h3 className="timeline__cs__header">Introduction to Computer Science</h3>
+            <VerticalTimeline
+              layout={`2-columns`}
+              lineColor="var(--tomato-theme-main-color)"
+            >
+              {curriculam.map((item, index) => (
+                <VerticalTimelineElement
+                  key={index}
+                  className="timeline__cs__element"
+                  contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                  contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                  iconStyle={{ background: 'gray', color: '#fff' }}
+                  icon={<MdComputer />}
+                >
+                  <div className="timeline-element-topic-wrapper">
+                    <h3>
+                      {item.topic}
+                    </h3>
 
-      
-      <div className="skills__content-wrapper">
-        {
-         curriculam.map((item,i) => (
+                    <h4>
+                      {item.description}
+                    </h4>
+
+                    <p>
+                      Duration : {item.duration}
+                    </p>
+                  </div>
+                </VerticalTimelineElement>
+              ))}
+            </VerticalTimeline>
+          </div>
           
-            <div key={i} className="skills__content-wrapper__inner-content">
-              <Animate
-                play={true}
-                duration={1}
-                delay={0.3}
-                start={{
-                  transform: `translateX(-200px)`,
-                }}
-                end={{
-                  transform: `translateX(0px)`,
-                }}
-              >
-                <h3 className="skills__content-wrapper__inner-content__skillItem"> {item.label} </h3>
-
-                <div>
-                    {
-                        item.data.map( (skillItem,j) => (
-                            <AnimateKeyframes 
-                              play
-                              duration={1}
-                              keyframes={[ "opacity: 1", "opacity: 0" ]}
-                              iterationCount="1"
-                            >
-                                <div className="progressbar-wrapper" key={j}>
-                                    <p>{skillItem.skillName} </p>
-                                    <Line
-                                      percent= {skillItem.percentage}
-                                      strokeWidth= "2"
-                                      strokeColor= "green"
-                                      strokeLinecap="round"
-                                      trailWidth= "2"
-                                      trailColor="yellow"
-                                    />
-                                </div>
-
-                            </AnimateKeyframes>
-                        ))
-                    }
-                </div>
-              </Animate>
-            </div>
-          )
-            )}
-      </div>
+        </div>
       </section> 
     </>
   )
