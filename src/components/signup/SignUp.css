@@ -11,8 +11,22 @@ button{
 
 button[type=submit] {
     background-color: yellowgreen;
+    margin-left: 400px;
 }
 
 button[type=reset] {
     background-color: orange;
+}
+
+.form-control{
+    width: 70%;
+}
+
+.form-group {
+    justify-content: space-evenly;
+    padding: 5px 10px;
+}
+
+.m-5 {
+    margin: 1rem!important;
 }

@@ -26,36 +26,40 @@ return(
     <>
       <div className="register-form">
         <form onSubmit={handleSubmit(onSubmit)}>
-
-           {/*  first name */}
+          
+           {/*  first name */}           
           <div className="form-group">
-            <label>First Name</label>
+             <label>First Name</label> 
             <input type="text" {...register("firstname")} className={`form-control ${errors.firstname? 'is-invalid' : ''} `}></input>
             <div className="invalid-feedback">
                 {
               Object.keys(errors).includes("firstname")? errors.firstname.message : ''
 
                 }
-            </div>
+            </div>           
           </div>
+          
 
+          
            {/*  last name */}
            <div className="form-group">
-            <label>Last Name</label>
-            <input type="text" {...register("lastname")} className={`form-control ${errors.lastname? 'is-invalid' : ''} `}></input>
-            <div className="invalid-feedback">
+             <label>Last Name</label> 
+             <input type="text" {...register("lastname")} className={`form-control ${errors.lastname? 'is-invalid' : ''} `}></input> 
+             <div className="invalid-feedback">
                 {
               Object.keys(errors).includes("lastname")? errors.lastname.message : ''
 
                 }
             </div>
+            
           </div>
-
+          
+          
           
            {/*  Email */}
            <div className="form-group">
-            <label>Email</label>
-            <input type="email" {...register("email")} className={`form-control ${errors.email? 'is-invalid' : ''} `}></input>
+            <label>Email</label> 
+            <input type="email" {...register("email")} className={`form-control ${errors.email? 'is-invalid' : ''} `}></input> 
             <div className="invalid-feedback">
                 {
               Object.keys(errors).includes("email")? errors.email.message : ''
@@ -63,24 +67,29 @@ return(
                 }
 
            </div>
+          
           </div>
+          
 
+          
           {/*  Password */}
         <div className="form-group">
-            <label>Password</label>
-            <input type="password" {...register("password")} className={`form-control ${errors.password? 'is-invalid' : ''}`}></input>
+           <label>Password</label> 
+            <input type="password" {...register("password")} className={`form-control ${errors.password? 'is-invalid' : ''}`}></input> 
             <div className="invalid-feedback">
               {
                 Object.keys(errors).includes("password")? errors.password.message: ''
               }
-            </div>
-        </div> 
+            </div>            
+        </div>
+      
 
              {/* Submit & Reset  */}
           <div className="form-group">
             <button type="submit" className="btn-btn-success btn-sm m-5"> Submit </button> 
             <button type="reset" onClick={()=>reset()} className="btn-btn-danger btn-sm m-5"> Reset </button>
           </div>
+          
         </form>
       </div>
     </>
