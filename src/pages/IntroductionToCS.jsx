@@ -1,9 +1,7 @@
 import React from 'react';
-import {BsInfoCircleFill} from 'react-icons/bs';
 import {curriculam} from '../utils/data';
 import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import Header from '../components/header/Header';
 import './IntroductionToCS.scss';
 import {MdComputer} from 'react-icons/md'
 
@@ -52,4 +50,4 @@ const IntroductionToCS = () => {
   )
 }
 
-export default IntroductionToCS
+export default IntroductionToCS;

@@ -1,0 +1,17 @@
+form{
+    height: 350px;
+}
+
+button{
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+button[type=submit] {
+    background-color: yellowgreen;
+}
+
+button[type=reset] {
+    background-color: orange;
+}

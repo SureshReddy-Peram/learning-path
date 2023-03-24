@@ -1,5 +1,4 @@
 import React from 'react';
-import Courses from '../courses/Courses';
 import Sidenav from '../navbar/Sidenav';
 import './Home.scss';
 
@@ -18,4 +17,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
